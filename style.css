@@ -1,0 +1,154 @@
+/* Reset e Configuração Base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f2f5;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* Container Principal */
+.container {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+/* Título */
+h1 {
+    font-size: 1.8rem;
+    color: #00796b;
+    margin-bottom: 20px;
+}
+
+/* Saldo */
+.balance {
+    margin-bottom: 20px;
+}
+
+.balance h3 {
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.balance span {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #00796b;
+}
+
+/* Formulário de Transações */
+.transaction-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.transaction-form input {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+.transaction-form input:focus {
+    border-color: #00796b;
+}
+
+.transaction-form button {
+    padding: 10px;
+    font-size: 1rem;
+    color: #fff;
+    background-color: #00796b;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.transaction-form button:hover {
+    background-color: #004d40;
+}
+
+/* Lista de Transações */
+#transaction-list {
+    list-style: none;
+    padding: 0;
+}
+
+.transaction {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+    transition: background-color 0.3s;
+}
+
+.transaction:hover {
+    background-color: #f1f1f1;
+}
+
+.transaction.income {
+    border-left: 4px solid #4caf50;
+    color: #4caf50;
+}
+
+.transaction.expense {
+    border-left: 4px solid #f44336;
+    color: #f44336;
+}
+
+/* Botão de Remover Transação */
+.transaction button {
+    background: none;
+    border: none;
+    color: #888;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.transaction button:hover {
+    color: #e57373;
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+    .container {
+        width: 100%;
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    .balance h3 {
+        font-size: 1.1rem;
+    }
+
+    .transaction-form input, 
+    .transaction-form button {
+        font-size: 0.9rem;
+    }
+}
