@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gerenciador de Finanças Pessoais</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script> <!-- jsPDF -->
 </head>
 <body>
     <div class="container">
@@ -22,6 +23,9 @@
 
         <h3>Transações</h3>
         <ul id="transaction-list"></ul>
+
+        <!-- Botão para gerar o PDF -->
+        <button onclick="generatePDF()">Gerar Relatório em PDF</button>
     </div>
 
     <script src="script.js"></script>
