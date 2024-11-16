@@ -7,7 +7,10 @@
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #f0f2f5;
+    background-image: url("wall.jpg");
+    background-size: cover; /* Ajuste para cobrir toda a tela */
+    background-repeat: no-repeat;
+    background-position: center; /* Centraliza a imagem no fundo */
     color: #333;
     display: flex;
     justify-content: center;
@@ -19,10 +22,10 @@ body {
 /* Container Principal */
 .container {
     width: 100%;
-    max-width: 400px;
-    padding: 20px;
+    max-width: 450px; /* Aumentado para dar mais espaço */
+    padding: 30px;
     background-color: #fff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Efeito de sombra mais suave */
     border-radius: 8px;
     text-align: center;
     transition: all 0.3s ease;
@@ -30,7 +33,7 @@ body {
 
 /* Título */
 h1 {
-    font-size: 1.8rem;
+    font-size: 2rem; /* Aumentado para mais destaque */
     color: #00796b;
     margin-bottom: 20px;
 }
@@ -41,12 +44,12 @@ h1 {
 }
 
 .balance h3 {
-    font-size: 1.2rem;
+    font-size: 1.3rem; /* Maior para melhor leitura */
     color: #333;
 }
 
 .balance span {
-    font-size: 1.5rem;
+    font-size: 1.8rem; /* Aumentado para mais destaque */
     font-weight: bold;
     color: #00796b;
 }
@@ -55,51 +58,79 @@ h1 {
 .transaction-form {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 12px; /* Espaço maior entre os elementos */
     margin-bottom: 20px;
 }
 
 .transaction-form input {
-    padding: 10px;
+    padding: 12px;
     border: 1px solid #ddd;
     border-radius: 4px;
-    font-size: 1rem;
+    font-size: 1.1rem; /* Aumentado para facilitar digitação */
     transition: border-color 0.3s;
 }
 
 .transaction-form input:focus {
-    border-color: #00796b;
+    border-color: #004d40; /* Mudança na cor do foco */
 }
 
 .transaction-form button {
-    padding: 10px;
-    font-size: 1rem;
-    color: #fff;
-    background-color: #00796b;
+    padding: 12px;
+    font-size: 1.1rem;
+    color: #2b2b2b;
+    background-color: #d8fffa;
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, transform 0.2s ease-in-out;
 }
 
 .transaction-form button:hover {
     background-color: #004d40;
+    transform: scale(1.05); /* Efeito de aumentar o botão ao passar o mouse */
 }
+
+/* Botão de Gerar Relatório */
+button[onclick="generatePDF()"] {
+    padding: 12px 20px;
+    font-size: 1.1rem;
+    color: #fff;
+    background-color: #00796b;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 20px;
+    width: 100%; /* Botão ocupa toda a largura do container */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para destaque */
+    transition: background-color 0.3s, transform 0.2s ease-in-out;
+}
+
+button[onclick="generatePDF()"]:hover {
+    background-color: #004d40;
+    transform: scale(1.05); /* Efeito de "aumento" ao passar o mouse */
+}
+
+button[onclick="generatePDF()"]:active {
+    transform: scale(0.98); /* Efeito de "clique" */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Reduz a sombra ao clicar */
+}
+
 
 /* Lista de Transações */
 #transaction-list {
     list-style: none;
     padding: 0;
+    margin-top: 20px;
 }
 
 .transaction {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px;
-    margin-bottom: 10px;
+    padding: 12px;
+    margin-bottom: 12px;
     border: 1px solid #ddd;
-    border-radius: 4px;
+    border-radius: 6px; /* Borda mais suave */
     background-color: #f9f9f9;
     transition: background-color 0.3s;
 }
@@ -109,12 +140,12 @@ h1 {
 }
 
 .transaction.income {
-    border-left: 4px solid #4caf50;
+    border-left: 6px solid #4caf50;
     color: #4caf50;
 }
 
 .transaction.expense {
-    border-left: 4px solid #f44336;
+    border-left: 6px solid #f44336;
     color: #f44336;
 }
 
@@ -123,7 +154,7 @@ h1 {
     background: none;
     border: none;
     color: #888;
-    font-size: 1rem;
+    font-size: 1.1rem;
     cursor: pointer;
     transition: color 0.3s;
 }
@@ -144,11 +175,19 @@ h1 {
     }
 
     .balance h3 {
-        font-size: 1.1rem;
+        font-size: 1.2rem;
     }
 
-    .transaction-form input, 
+    .transaction-form input,
     .transaction-form button {
-        font-size: 0.9rem;
+        font-size: 1rem;
+    }
+
+    .transaction {
+        padding: 10px; /* Ajuste do padding para telas menores */
+    }
+
+    .transaction button {
+        font-size: 1rem; /* Reduzido para se ajustar melhor */
     }
 }
