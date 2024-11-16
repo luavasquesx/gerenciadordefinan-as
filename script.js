@@ -9,7 +9,9 @@ function addTransaction() {
     const description = document.getElementById("description").value;
     const amount = parseFloat(document.getElementById("amount").value);
 
-    if (!description || isNaN(amount)) return alert("Por favor, preencha todos os campos!");
+    if (!description || isNaN(amount)) {
+        return alert("Por favor, preencha todos os campos!");
+    }
 
     const transaction = {
         id: Date.now(),
@@ -48,7 +50,28 @@ function removeTransaction(id) {
     updateBalance();
 }
 
+// Função para gerar o PDF
+function generatePDF() {
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF();
+
+    doc.text("Relatório de Transações", 20, 20);
+    const balanceText = document.getElementById("balance").textContent;
+    doc.text(`Saldo Atual: ${balanceText}`, 20, 30);
+
+    let y = 40; // Posição inicial para as transações
+
+    transactions.forEach((transaction) => {
+        doc.text(`${transaction.description}: R$ ${transaction.amount.toFixed(2)}`, 20, y);
+        y += 10; // Ajusta a posição para o próximo item
+    });
+
+    // Baixa o PDF
+    doc.save("relatorio_transacoes.pdf");
+}
+
 document.addEventListener("DOMContentLoaded", () => {
     renderTransactions();
     updateBalance();
 });
+
